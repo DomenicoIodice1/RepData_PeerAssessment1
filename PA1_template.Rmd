@@ -1,13 +1,17 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
+title: 'Reproducible Research: Peer Assessment 1'
+author: "Domenico Iodice"
+date: "02 settembre 2017"
 output: 
-  html_document:
-    keep_md: true
+  html_document: 
+    keep_md: yes
 ---
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(warning=FALSE)
 ```
+
 # Course project 1 Reproducible Data
 
 ## Loading and preprocessing the data
@@ -69,7 +73,7 @@ activity_data$datetype<-sapply(activity_data$date,weekday_or_weekend)
 activity_data_2<-aggregate(steps~interval+datetype,activity_data,mean,na.rm=TRUE)
 plot<-ggplot(activity_data_2,aes(x=interval,y=steps,color=datetype)) +
   geom_line() +
-  labs(title = "Weekday vs Weekend: Average daily steps",x="Interval",y ="Average nÂ° steps")+
+  labs(title = "Weekday vs Weekend: Average daily steps",x="Interval",y ="Average n° steps")+
   facet_wrap(~datetype,ncol=1,nrow=2)
 print(plot)
 ```
